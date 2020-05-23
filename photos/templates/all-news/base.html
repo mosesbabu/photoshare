@@ -1,0 +1,51 @@
+{% load bootstrap4 %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  {% if title %}
+  <title>Moringa Tribune - {{title}}</title>
+  {% else %}
+    <title> Moringa Tribune </title>
+  {% endif %}
+
+  {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/basenews.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  {% endblock %}
+
+</head>
+<body>
+    {% include "navbar.html" %}
+    {% block content %} 
+    <div class="container">
+
+      <div class="row">
+        <img src="{{article.article_image.url}}"  class="img-responsive" alt="">
+      </div>
+   
+      <div class="row">
+        <h1 class="text-center">{{article.title}}</h1>
+      </div>
+   
+      <div class="row">
+        <p>{{article.post}}</p>
+      </div>
+   
+      <div class="row">
+        <p>Posted {{article.pub_date|timesince}} by {{article.editor.first_name}}</p>
+      </div>
+   
+    </div>
+  {% endblock %} 
+
+    {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     {% bootstrap_javascript %}
+    {% endblock %}
+</body>
+</html>
