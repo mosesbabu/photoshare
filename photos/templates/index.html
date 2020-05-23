@@ -99,7 +99,7 @@
                     <div class="projects-holder col-md-10 col-sm-9">
                         <div class="row">
                             {% for image in all_images %}
-                            <div class="col-md-6 col-sm-6 project-item mix Nature">
+                            <div class="col-md-6 col-sm-6 project-item mix {{image.image_category}}">
                                 <div class="project-thumb">
                                     <img src="{{image.path.url}}" alt="">
                                     <div class="overlay-b">
@@ -114,6 +114,7 @@
                                 </div>
                             </div> <!-- /.project-item -->
                             {% endfor %} 
+                            
                             </div>
                             
                         </div> 

@@ -7,7 +7,8 @@ import datetime as dt
 
 def photo_display(request):
     all_images = Image.objects.all()
-    return render(request, 'index.html', {"all_images": all_images})
+    category_results = Category.objects.all()
+    return render(request, 'index.html', {"all_images": all_images, 'category_results':category_results})
 
 
 def search_results(request):
@@ -27,7 +28,7 @@ def search_results(request):
 def get_category(request,category):
     category_results = Category.objects.all()
     location_results = Location.objects.all()
-    category_result = Image.objects.filter(image_category__cat_name = category)
+    category_result = Image.objects.filter(image_category__name = category)
     return render(request,'index.html',{'all_images':category_result,'category_results':category_results,'location_results':location_results})
 
 def get_location(request,location):
