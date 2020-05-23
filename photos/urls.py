@@ -4,7 +4,7 @@ from django.conf import settings
 from . import views
 
 urlpatterns=[
-  url(r'^$',views.images,name='Images'),
+  url(r'^$',photo_display,name='Images'),
   url(r'^search/',views.search_results, name='search_results'),
 ]
 if settings.DEBUG:
