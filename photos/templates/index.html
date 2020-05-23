@@ -15,12 +15,12 @@
         Artcore Template
 		http://www.templatemo.com/preview/templatemo_423_artcore
         -->
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/font-awesome.css">
-        <link rel="stylesheet" href="css/animate.css">
-        <link rel="stylesheet" href="css/templatemo-misc.css">
-        <link rel="stylesheet" href="css/templatemo-style.css">
-        <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+        <link rel="stylesheet" href="static/css/bootstrap.css">
+        <link rel="stylesheet" href="static/css/font-awesome.css">
+        <link rel="stylesheet" href="static/css/animate.css">
+        <link rel="stylesheet" href="static/css/templatemo-misc.css">
+        <link rel="stylesheet" href="static/css/templatemo-style.css">
+        <script src="static/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -87,22 +87,24 @@
                 </div> <!-- /.row -->
                 <div class="projects-holder-2 row">
                     <div class="filter-categories col-md-2 col-sm-3">
+                        {% for cat in category_results %}
                         <ul class="project-filter">
-                            <li class="filter" data-filter="all"><span>All</span></li>
-                            <li class="filter" data-filter="buildings"><span>Buildings</span></li>
-                            <li class="filter" data-filter="design"><span>Design</span></li>
-                            <li class="filter" data-filter="architecture"><span>Architecture</span></li>
-                            <li class="filter" data-filter="nature"><span>Nature</span></li>
+                            <li class="filter" data-filter="{{cat.name}}"><span>{{cat.name}}</span></li>
+    
                         </ul>
+                        {% endfor %}
                     </div>
+
+                   
                     <div class="projects-holder col-md-10 col-sm-9">
                         <div class="row">
-                            <div class="col-md-6 col-sm-6 project-item mix {{image.category}}">
+                            {% for image in all_images %}
+                            <div class="col-md-6 col-sm-6 project-item mix Nature">
                                 <div class="project-thumb">
-                                    <img src="{{image.image.url}}" alt="">
+                                    <img src="{{image.path.url}}" alt="">
                                     <div class="overlay-b">
                                         <div class="overlay-inner">
-                                            <a href="{{image.image.url}}" class="fancybox fa fa-expand" title="{{image.title}}"></a>
+                                            <a href="{{image.path.url}}" class="fancybox fa fa-expand" title="{{image.title}}"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -111,18 +113,21 @@
                                     <p>{{image.description}}</p>
                                 </div>
                             </div> <!-- /.project-item -->
-                           
-                            </div> 
+                            {% endfor %} 
+                            </div>
+                            
                         </div> 
+
+                        
                     </div> <!-- /.projects-holder -->
                 </div> <!-- /.projects-holder-2 -->
             </div> <!-- /.inner-content -->
         </div> <!-- /.content-wrapper -->
 
         <script src="js/vendor/jquery-1.11.0.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <script>window.jQuery || document.write('<script src="static/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+        <script src="static/js/plugins.js"></script>
+        <script src="static/js/main.js"></script>
 
         <!-- Preloader -->
         <script type="text/javascript">
