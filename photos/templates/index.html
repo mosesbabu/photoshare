@@ -23,12 +23,7 @@
         <link rel="stylesheet" href="static/css/templatemo-style.css">
         <script src="static/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 
-        <script>
-            function copyToClipboard(element) {
-              $(element).select();
-              document.execCommand("copy");
-            }
-            </script>
+        
     </head>
 
     
@@ -124,7 +119,7 @@
                                     <div class="overlay-b">
                                         <div class="overlay-inner">
                                             <a href="{{image.path.url}}" class="fancybox fa fa-expand" title="{{image.title}}"></a>
-                                                <button class="btn btn-secondary" onclick="copyToClipboard('{{image.path.url}}')">Copy</button>
+                                                <button class="btn btn-secondary" id="imagelink" onclick="copyToClipboard('{{image.path.url}}')">Copy</button>
                                         </div>
                                     </div>
                                 </div>
