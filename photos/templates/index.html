@@ -1,4 +1,5 @@
-
+{%extends 'base.html'%} 
+{% block content %}
     <script>
         function CopyFunction() {
           var copyText = document.getElementById("imagelink");
@@ -7,8 +8,6 @@
           alert("Copied the text: " + copyText.value);
         }
         </script>
-    
-    <body>
 
         <!-- /#pageloader -->
         <div class="row">
@@ -78,25 +77,10 @@
 
                         
                     </div> <!-- /.projects-holder -->
-                </div> <!-- /.projects-holder-2 -->
+                </div> <!-- /.projects-holder- -->
             </div> <!-- /.inner-content -->
         </div> <!-- /.content-wrapper -->
 
-        <script src="js/vendor/jquery-1.11.0.min.js"></script>
-        <script>window.jQuery || document.write('<script src="static/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-        <script src="static/js/plugins.js"></script>
-        <script src="static/js/main.js"></script>
+{% endblock %}       
 
-        <!-- Preloader -->
-        <script type="text/javascript">
-            //<![CDATA[
-            $(window).load(function() { 
-                $('.loader-item').fadeOut(); 
-                    $('#pageloader').delay(350).fadeOut('slow');
-                $('body').delay(350).css({'overflow-y':'visible'});
-            })
-            //]]>
-        </script>
-
-    </body>
-</html>
+    
