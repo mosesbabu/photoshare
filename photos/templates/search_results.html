@@ -1,6 +1,62 @@
 {% extends base.html%}
 
 <div class="content-wrapper">
+    <div class="inner-container container">
+        <div class="row">
+            <div class="section-header col-md-12">
+                <h2>PhotoShare</h2>
+                <span></span>
+            </div> <!-- /.section-header -->
+        </div> <!-- /.row -->
+        
+        <div class="projects-holder-2 row">
+            <h4>Filter By Category</h4>
+            <div class="filter-categories col-md-2 col-sm-3">
+                {% for cat in category_results %}
+                <ul class="project-filter">
+                    <li class="filter" data-filter="{{cat.name}}"><span>{{cat.name}}</span></li>
 
-    
-</div>
+                </ul>
+                {% endfor %}
+            <h4>Filter By Location</h4>
+                {% for item in location_results %}
+                <ul class="project-filter">
+                    <li class="filter" data-filter="{{item.name}}"><span>{{item.name}}</span></li>
+
+                </ul>
+                {% endfor %}
+            </div>
+
+           
+            <div class="projects-holder col-md-10 col-sm-9">
+                <div class="row">
+                    {% for image in all_images %}
+                    <div class="col-md-6 col-sm-6 project-item mix  {{image.location}} {{image.image_category}}">
+                        <div class="project-thumb">
+                            <img src="{{image.path.url}}" alt="">
+                            <div class="overlay-b">
+                                <div class="overlay-inner">
+                                    <a href="{{image.path.url}}" class="fancybox fa fa-expand" title="{{image.title}}"></a>
+                                    <input type="text" id="imagelink" class="form-control input-sm" value="{{image.path.url}}" class="hidden">
+                                    <button class="btn btn-primary" onclick="CopyFunction()">
+                                        <i class="fa fa-copy" style="color: #d6962c"></i> Copy Link
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-content project-detail">
+                            <h2>{{image.title}}</h2>
+                            <p>{{image.description}}</p>
+                        </div>
+                    </div> <!-- /.project-item -->
+                    {% endfor %} 
+                    
+                    </div>
+                    
+                </div> 
+
+                
+            </div> <!-- /.projects-holder -->
+        </div> <!-- /.projects-holder- -->
+    </div> <!-- /.inner-content -->
+</div> <!-- /.content-wrapper -->
