@@ -42,7 +42,14 @@
         <section id="pageloader">
             <div class="loader-item fa fa-spin colored-border"></div>
         </section> <!-- /#pageloader -->
+        <div class="row">
+            {% if all_images%}
 
+            {% else %}
+              <h2> Found 0 images for the search term {{message}}</h2>
+            {% endif %}
+        
+          </div>
         <header class="site-header container-fluid">
             <div class="top-header">
                 <div class="logo col-md-6 col-sm-6">
@@ -61,17 +68,12 @@
             </div> <!-- /.top-header -->
             <div class="main-header">
                 <div class="row">
+                    
                     <div class="main-header-left col-md-3 col-sm-6 col-xs-8">
-                        <a id="search-icon" class="btn-left fa fa-search" href="#search-overlay"></a>
-                        <div id="search-overlay">
-                            <a href="#search-overlay" class="close-search"><i class="fa fa-times-circle"></i></a>
-                            <div class="search-form-holder">
-                                <h2>Type keywords and hit enter</h2>
-                                <form id="search-form" action="#">
-                                    <input type="search" name="s" placeholder="" autocomplete="off" />
-                                </form>
-                            </div>
-                        </div><!-- #search-overlay -->
+                        <form class="form-inline my-2 my-lg-0" action="{% url 'search_results' %}">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="searchItem" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                          </form>
                     </div> <!-- /.main-header-left -->
                     <div class="menu-wrapper col-md-9 col-sm-6 col-xs-4">
                         <a href="#" class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></a>
