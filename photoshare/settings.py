@@ -28,7 +28,7 @@ STATICFILES_DIRS = (
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG',default=False,cast=bool)
+DEBUG = False
 # development
 if config('MODE')=="dev":
    DATABASES = {
