@@ -10,24 +10,6 @@
         </div> <!-- /.row -->
         
         <div class="projects-holder-2 row">
-            <h4>Filter By Category</h4>
-            <div class="filter-categories col-md-2 col-sm-3">
-                {% for cat in category_results %}
-                <ul class="project-filter">
-                    <li class="filter" data-filter="{{cat.name}}"><span>{{cat.name}}</span></li>
-
-                </ul>
-                {% endfor %}
-            <h4>Filter By Location</h4>
-                {% for item in location_results %}
-                <ul class="project-filter">
-                    <li class="filter" data-filter="{{item.name}}"><span>{{item.name}}</span></li>
-
-                </ul>
-                {% endfor %}
-            </div>
-
-           
             <div class="projects-holder col-md-10 col-sm-9">
                 <div class="row">
                     {% for image in all_images %}
