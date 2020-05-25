@@ -1,4 +1,4 @@
-{% extends base.html%}
+{% extends base.html %}
 
 <div class="content-wrapper">
     <div class="inner-container container">
@@ -8,7 +8,7 @@
                 <span></span>
             </div> <!-- /.section-header -->
         </div> <!-- /.row -->
-        
+        {% if all_images%}
         <div class="projects-holder-2 row">
             <div class="projects-holder col-md-10 col-sm-9">
                 <div class="row">
@@ -42,3 +42,6 @@
         </div> <!-- /.projects-holder- -->
     </div> <!-- /.inner-content -->
 </div> <!-- /.content-wrapper -->
+{% else %}
+<h2> Found 0 images for the search term {{message}}</h2>
+{% endif %}
